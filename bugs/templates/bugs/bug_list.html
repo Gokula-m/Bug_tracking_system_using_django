@@ -1,0 +1,26 @@
+{% extends 'bugs/base.html' %}
+
+{% block content %}
+<h1 style="margin-bottom: 20px;">All Bugs</h1>
+
+<div style="margin-bottom: 20px;">
+    <a href="?status=open" class="btn" style="background: #e74c3c;">Open</a>
+    <a href="?status=in_progress" class="btn" style="background: #f39c12;">In Progress</a>
+    <a href="?status=closed" class="btn" style="background: #95a5a6;">Closed</a>
+    <a href="{% url 'bug_list' %}" class="btn">All</a>
+</div>
+
+{% for bug in bugs %}
+<div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <h3><a href="{% url 'bug_detail' bug.pk %}" style="color: #2c3e50; text-decoration: none;">{{ bug.title }}</a></h3>
+            <p style="color: #7f8c8d; margin-top: 5px;">{{ bug.project }} • Reported by {{ bug.reported_by }}</p>
+        </div>
+        <span class="status status-{{ bug.status }}">{{ bug.get_status_display }}</span>
+    </div>
+</div>
+{% empty %}
+<p>No bugs found.</p>
+{% endfor %}
+{% endblock %}

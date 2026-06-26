@@ -1,0 +1,139 @@
+Bug Tracker Admin Data Examples
+================================
+
+This file explains what kind of information you can enter in each admin module.
+
+
+Project
+-------
+Project means the application, website, or system where the bug is found.
+
+Example 1:
+Name: Library Management System
+Description: Web app for managing books, students, borrowing, and returns.
+
+Example 2:
+Name: E-Commerce Website
+Description: Online shopping platform with cart, payment, and order tracking.
+
+Example 3:
+Name: Student Attendance System
+Description: Application for marking attendance and generating attendance reports.
+
+
+Bug
+---
+Bug means the actual issue or problem reported in a project.
+
+Example 1:
+Title: Login button not working
+Description: When the user enters valid username and password, the page refreshes but does not log in.
+Project: Library Management System
+Status: Open
+Priority: High
+Assigned to: smith
+Reported by: gokula
+
+Example 2:
+Title: Payment page shows server error
+Description: Checkout fails with a 500 error after selecting UPI payment.
+Project: E-Commerce Website
+Status: In Progress
+Priority: Critical
+Assigned to: gokula
+Reported by: smith
+
+Example 3:
+Title: Attendance report downloads empty file
+Description: The generated attendance report file opens, but it has no student records.
+Project: Student Attendance System
+Status: Open
+Priority: Medium
+Assigned to: smith
+Reported by: gokula
+
+
+Comment
+-------
+Comment means a discussion, update, or note added to a bug.
+
+Example 1:
+Bug: Login button not working
+Author: smith
+Content: I checked the browser console. There is a JavaScript error on the login page.
+
+Example 2:
+Bug: Payment page shows server error
+Author: gokula
+Content: Fixed the payment callback URL. Please test the checkout flow again.
+
+Example 3:
+Bug: Attendance report downloads empty file
+Author: smith
+Content: The database query is returning records, so the issue may be in the report generation code.
+
+
+User
+----
+User means a person who can log in to the system.
+
+Example 1:
+Username: gokula
+Email: gokulag415@gmail.com
+First name: Gokula
+Last name: Krishnan
+Staff status: Yes
+Superuser status: Yes
+Active: Yes
+
+Example 2:
+Username: smith
+Email: smith@example.com
+First name: John
+Last name: Smith
+Staff status: No
+Superuser status: No
+Active: Yes
+
+Example 3:
+Username: tester1
+Email: tester1@example.com
+First name: Test
+Last name: User
+Staff status: No
+Superuser status: No
+Active: Yes
+
+
+Group
+-----
+Group means a role or permission category for users.
+
+Example 1:
+Group name: Developers
+Purpose: Users in this group can fix bugs, update bug status, and add comments.
+Users: gokula, smith
+
+Example 2:
+Group name: Testers
+Purpose: Users in this group can report bugs, test fixes, and add comments.
+Users: tester1
+
+Example 3:
+Group name: Project Managers
+Purpose: Users in this group can create projects, assign bugs, and close completed bugs.
+Users: manager1
+
+Example 4:
+Group name: Admin Team
+Purpose: Users in this group can manage projects, bugs, comments, users, and groups.
+Users: gokula
+
+
+Simple Meaning
+--------------
+Project = Which app/system the bug belongs to
+Bug = The actual issue
+Comment = Discussion or update about the bug
+User = Person using the system
+Group = Role or permission category for users

@@ -1,0 +1,16 @@
+{% extends 'bugs/base.html' %}
+
+{% block content %}
+<div class="card">
+    <h1>{% if bug %}Edit Bug{% else %}Report Bug{% endif %}</h1>
+
+    <form method="post" style="margin-top: 20px;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">
+            {% if bug %}Update Bug{% else %}Report Bug{% endif %}
+        </button>
+        <a href="{% url 'bug_list' %}" class="btn" style="background: #95a5a6;">Cancel</a>
+    </form>
+</div>
+{% endblock %}

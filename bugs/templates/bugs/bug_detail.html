@@ -1,0 +1,48 @@
+{% extends 'bugs/base.html' %}
+
+{% block content %}
+<div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: start;">
+        <div>
+            <h1>{{ bug.title }}</h1>
+            <p style="color: #7f8c8d; margin: 10px 0;">
+                {{ bug.project }} • Priority: {{ bug.get_priority_display }} • 
+                Assigned to: {{ bug.assigned_to|default:"Unassigned" }}
+            </p>
+        </div>
+        <span class="status status-{{ bug.status }}">{{ bug.get_status_display }}</span>
+    </div>
+    
+    <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+    
+    <p>{{ bug.description }}</p>
+    
+    <p style="color: #95a5a6; margin-top: 20px; font-size: 14px;">
+        Reported by {{ bug.reported_by }} on {{ bug.created_at|date:"M d, Y" }}
+    </p>
+    
+    <a href="{% url 'bug_update' bug.pk %}" class="btn" style="margin-top: 15px;">Edit Bug</a>
+</div>
+
+<h2 style="margin: 30px 0 15px;">Comments</h2>
+
+{% if user.is_authenticated %}
+<div class="card">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.content }}
+        <button type="submit" class="btn">Add Comment</button>
+    </form>
+</div>
+{% endif %}
+
+{% for comment in comments %}
+<div class="card">
+    <strong>{{ comment.author }}</strong>
+    <span style="color: #95a5a6; font-size: 14px;">{{ comment.created_at|date:"M d, Y H:i" }}</span>
+    <p style="margin-top: 10px;">{{ comment.content }}</p>
+</div>
+{% empty %}
+<p style="color: #7f8c8d;">No comments yet.</p>
+{% endfor %}
+{% endblock %}
